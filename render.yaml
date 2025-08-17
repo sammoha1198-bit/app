@@ -1,14 +1,16 @@
-services:
-  - type: web
-    name: ai-maintenance-tracker
-    runtime: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
-    healthCheckPath: /health
-    autoDeploy: true
-    envVars:
-      - key: DATABASE_URL
-        value: postgresql+psycopg2://REPLACE_WITH_INTERNAL_URL
-      - key: TZ
-        value: Asia/Riyadh
+(
+echo services:
+echo   - type: web
+echo     name: ai-maintenance-tracker
+echo     runtime: python
+echo     plan: free
+echo     buildCommand: pip install -r requirements.txt
+echo     startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+echo     healthCheckPath: /health
+echo     autoDeploy: true
+echo     envVars:
+echo       - key: DATABASE_URL
+echo         value: postgresql+psycopg2://REPLACE_WITH_INTERNAL_URL
+echo       - key: TZ
+echo         value: Asia/Riyadh
+) > render.yaml
