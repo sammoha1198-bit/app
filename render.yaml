@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ai-maintenance-tracker
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker ai_tracker_app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:////data/ai_tracker.db
+    healthCheckPath: /health
+    autoDeploy: true
+    disk:
+      name: db
+      mountPath: /data
+      sizeGB: 1
