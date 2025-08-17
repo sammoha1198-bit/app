@@ -7,3 +7,5 @@ pydantic==1.10.13
 openpyxl==3.1.2
 apscheduler==3.10.4
 psycopg2-binary==2.9.9
+
+
